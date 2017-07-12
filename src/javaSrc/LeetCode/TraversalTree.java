@@ -1,4 +1,4 @@
-package src.javaSrc.LeetCode;
+package javaSrc.LeetCode;
 
 
 import java.util.ArrayList;
@@ -6,19 +6,6 @@ import java.util.Stack;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * @author Jim Wang
- * @create 2017-07-02 13:31
- **/
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
 
 /**
  * Created by jiwang003746 on 2017/6/27.

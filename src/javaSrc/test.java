@@ -1,4 +1,4 @@
-package src.javaSrc;
+package javaSrc;
 
 import java.util.*;
 
