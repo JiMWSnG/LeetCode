@@ -15,7 +15,8 @@ public class DistinctSubsequences {
      * 题目描述
 
      Given a string S and a string T, count the number of distinct subsequences of T in S.
-     A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie,"ACE"is a subsequence of"ABCDE"while"AEC"is not).
+     A subsequence of a string is a new string which is formed from the original string by deleting some (can be none)
+     of the characters without disturbing the relative positions of the remaining characters. (ie,"ACE"is a subsequence of"ABCDE"while"AEC"is not).
      Here is an example:
      S ="rabbbit", T ="rabbit"
      Return3.
@@ -23,29 +24,35 @@ public class DistinctSubsequences {
     /**
     *  思路：dp题。
     *  状态定义：dp[i][j]代表s[0~i-1]中T[0~j-1]不同子串的个数。
-    *  递推关系式：S[i-1]!= T[j-1]：  DP[i][j] = DP[i][j-1] （不选择S中的s[i-1]字符）
-    *              S[i-1]==T[j-1]： DP[i][j] = DP[i-1][j-1]（选择S中的s[i-1]字符） + DP[i][j-1]
-    *  初始状态：第0列：DP[i][0] = 0，第0行：DP[0][j] = 1
+    *  递推关系式：S[i-1]!= T[j-1]：  DP[i][j] = DP[i-1][j] （不选择S中的s[i-1]字符）
+    *              S[i-1]==T[j-1]： DP[i][j] = DP[i-1][j-1]（选择S中的s[i-1]字符） + DP[i-1][j]
+    *  初始状态：第0列：DP[i][0] = 1，第0行：DP[0][j] = 0
     */
     public int numDistinct(String S, String T) {
         return matchString(S,T);
     }
-    //内存超限
     private int matchString(String s, String t){
-        if(s == null || t == null){
-            return 0;
+        int row = s.length()+1;
+        int col = t.length()+1;
+        int[][] dp = new int [row][col];
+        //t == "" 的情况
+        for(int i = 0; i < row; i++){
+            dp[i][0] = 1;
         }
-        if("".equals(s)&&!"".equals(t)){
-            return 0;
+        //s == "" 和s == t == "" 的情况，但是为什么是1
+        for (int j = 1; j < col; j++){
+            dp[0][j] = 0;
         }
-        if("".equals(s) || "".equals(t)){
-            return 1;
+        for (int i = 1; i< row; i++){
+            for (int j = 1; j <col; j++){
+                dp[i][j] = dp[i-1][j];
+                if(s.charAt(i-1) == t.charAt(j-1)){
+                    dp[i][j] += dp[i-1][j-1];
+                }
+            }
         }
-        if(s.charAt(0) == t.charAt(0)){
-            return matchString(s.substring(1),t.substring(1))+ matchString(s.substring(1),t);
-        }else{
-            return matchString(s.substring(1),t);
-        }
+        return dp[row-1][col-1];
+
     }
 
 
