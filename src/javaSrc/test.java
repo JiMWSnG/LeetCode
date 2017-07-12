@@ -1,9 +1,7 @@
-package javaSrc;
+package src.javaSrc;
 
-import java.security.Timestamp;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.*;
+
 
 
 public class test {
@@ -33,6 +31,7 @@ public class test {
 		System.out.println("1cost:  " + end);
 		return hash;
 	}
+
 	public  static int f(int n ){
 	    int result = 0;
 	    if(n<3){
@@ -56,33 +55,24 @@ public class test {
 
     }
 
+
 	public static void main(String[] args) {
 
-	    Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        System.out.println(f(n));
+     Scanner sc = new Scanner(System.in);
+     System.out.println("请输入你的姓名：");
+     String name = sc.nextLine();
+		System.out.println("请输入你的年龄：");
+		int age = sc.nextInt();
 
+		System.out.println("请输入你的工资：");
 
-	   /* Map<String ,Integer> result = new HashMap<>();
-        int[] a = {1,2,2,3};
-        int i =0 ;
-        int n =a.length;
-		while(i<n){
-            int j =i+1;
-            while(j<n&&a[j]==a[i]){
-                j++;
-            }
-            result.put(String.valueOf(a[i]),j-i);
-            System.out.println(a[i]+"("+(j-i)+")");
-            i=j;
+		float salary = sc.nextFloat();
 
+		System.out.println("你的信息如下：");
 
-        }*/
-
-
+		System.out.println("姓名："+name+"\n"+"年龄："+age+"\n"+"工资："+salary);
 
 	}
-
 	
 	
 	public static int minRunLength(int n) {
