@@ -23,6 +23,19 @@ public class GrayCode {
      */
 
     public ArrayList<Integer> grayCode(int n) {
+        ArrayList<Integer> result = new ArrayList<>();
+       if (n < 0){
+           return result;
+       }
+       result.add(0);
+       for (int i = 0; i< n; i++){
+           int size = result.size();
+           for (int j = size - 1; j >= 0; j--){
+               int temp = result.get(j);
+               result.add(temp+(int)Math.pow(2, i));
+           }
+       }
+       return result;
 
     }
 }
