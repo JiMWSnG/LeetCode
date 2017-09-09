@@ -1,8 +1,6 @@
-package javaSrc.LeetCode;
+package javaSrc.LeetCodeProgram;
 
-import java.util.ArrayDeque;
 import java.util.HashSet;
-import java.util.Queue;
 
 /**
  * Created by Jim Wang on 2017/4/9.

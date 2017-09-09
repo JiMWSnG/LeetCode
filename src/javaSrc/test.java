@@ -57,20 +57,24 @@ public class test {
 
 
 	public static void main(String[] args) {
-
-     Scanner sc = new Scanner(System.in);
-     System.out.println("请输入你的姓名：");
-     String name = sc.nextLine();
-		System.out.println("请输入你的年龄：");
-		int age = sc.nextInt();
-
-		System.out.println("请输入你的工资：");
-
-		float salary = sc.nextFloat();
-
-		System.out.println("你的信息如下：");
-
-		System.out.println("姓名："+name+"\n"+"年龄："+age+"\n"+"工资："+salary);
+		System.out.println(getMaxDay(3,5, 100, 10));
+		Integer a = 1;
+		if(a == null || a.equals(1) ){
+			System.out.println("test duanlu");
+		}
+//     Scanner sc = new Scanner(System.in);
+//     System.out.println("请输入你的姓名：");
+//     String name = sc.nextLine();
+//		System.out.println("请输入你的年龄：");
+//		int age = sc.nextInt();
+//
+//		System.out.println("请输入你的工资：");
+//
+//		float salary = sc.nextFloat();
+//
+//		System.out.println("你的信息如下：");
+//
+//		System.out.println("姓名："+name+"\n"+"年龄："+age+"\n"+"工资："+salary);
 
 	}
 	
@@ -87,4 +91,15 @@ public class test {
 		}
 		return n + r;
 	}
+
+	public static long getMaxDay(int x, int f, int d, int p){
+		if (x < 1 || f < 1 || d < 1 || p < 1){
+			return 0;
+		}
+		long a = d + p * f;
+		long b = x + p;
+		return  a/b;
+	}
+
+
 }

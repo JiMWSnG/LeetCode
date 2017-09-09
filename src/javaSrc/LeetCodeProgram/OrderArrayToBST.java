@@ -1,4 +1,4 @@
-package javaSrc.LeetCode;
+package javaSrc.LeetCodeProgram;
 
 /**
  * Created by jiwang003746 on 2017/6/27.

@@ -1,7 +1,6 @@
-package javaSrc.LeetCode;
+package javaSrc.LeetCodeProgram;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by jiwang003746 on 2017/7/14.
@@ -38,7 +37,7 @@ public class Subsets {
             return  result;
         }
         ArrayList<Integer> subset = new ArrayList<>();
-        result.add(new ArrayList<>());
+        result.add(new ArrayList<Integer>());
         subsets(num, 0, num.length, subset, result);
         return result;
 
@@ -56,7 +55,7 @@ public class Subsets {
             if(!sets.contains(subset)){
                 sets.add(new ArrayList<>(subset));
             }
-            subsets(num, i+1, end, new ArrayList<>(), sets);
+            subsets(num, i+1, end, new ArrayList<Integer>(), sets);
 
         }
     }
