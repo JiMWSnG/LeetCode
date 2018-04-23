@@ -55,13 +55,11 @@ public class test {
 
     }
 
-
 	public static void main(String[] args) {
-		System.out.println(getMaxDay(3,5, 100, 10));
-		Integer a = 1;
-		if(a == null || a.equals(1) ){
-			System.out.println("test duanlu");
-		}
+		String s1 ="hello world!";
+		String s2 ="hello world!";
+		System.out.println(s1== s2);
+		System.out.println(s1.equals(s2) );
 //     Scanner sc = new Scanner(System.in);
 //     System.out.println("请输入你的姓名：");
 //     String name = sc.nextLine();

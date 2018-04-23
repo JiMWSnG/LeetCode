@@ -8,27 +8,32 @@ import java.util.ArrayList;
 public class Subsets {
 
     public static void main(String[] args) {
-        int[] num = {2,2};
+        int[] num = {1,2,3};
         new Subsets().subsetsWithDup(num);
     }
+
     /**
      * 题目描述
 
-     Given a collection of integers that might contain duplicates, S, return all possible subsets.
+     Given a set of distinct integers, S, return all possible subsets.
      Note:
      Elements in a subset must be in non-descending order.
      The solution set must not contain duplicate subsets.
 
      For example,
-     If S =[1,2,2], a solution is:
+     If S =[1,2,3], a solution is:
      [
-     [2],
+     [3],
      [1],
-     [1,2,2],
-     [2,2],
+     [2],
+     [1,2,3],
+     [1,3],
+     [2,3],
      [1,2],
      []
      ]
+     * @param num
+     * @return
      */
     // dfs
     public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] num) {
@@ -37,25 +42,31 @@ public class Subsets {
             return  result;
         }
         ArrayList<Integer> subset = new ArrayList<>();
-        result.add(new ArrayList<Integer>());
-        subsets(num, 0, num.length, subset, result);
+        for (int i  =0; i<= num.length; i++){
+
+            subsets(num, 0, i, subset, result);
+        }
         return result;
 
     }
 
     //[begin,end)
-    private void subsets(int[] num, int begin, int end,
+    private void subsets(int[] num, int begin, int k,
                          ArrayList<Integer> subset, ArrayList<ArrayList<Integer>> sets){
-        if(begin ==  end){
+        if (begin + k > num.length){
             return;
         }
-        for (int i = begin; i<end; i++){
-
-            subset.add(num[i]);
+        if(k ==  0){
             if(!sets.contains(subset)){
                 sets.add(new ArrayList<>(subset));
             }
-            subsets(num, i+1, end, new ArrayList<Integer>(), sets);
+            return;
+        }
+        for (int i = begin; i<num.length; i++){
+
+            subset.add(num[i]);
+           subsets(num,i+1, k-1, subset,sets);
+            subset.remove(subset.size() - 1 );
 
         }
     }
