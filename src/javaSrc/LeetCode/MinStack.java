@@ -48,10 +48,10 @@ public class MinStack {
     }
 
     public int top() {
-
+        return 1;
     }
 
     public int getMin() {
-
+        return 1;
     }
 }

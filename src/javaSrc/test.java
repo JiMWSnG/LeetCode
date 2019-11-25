@@ -55,24 +55,27 @@ public class test {
 
     }
 
+	public static String upperCaseFirst(String s){
+		if (s == null || s.length() == 0){
+			return s;
+		}
+		char[] cs = s.toCharArray();
+		if (cs[0] >= 'a' && cs[0] <= 'z'){
+			cs[0] -= 32;
+		}
+		return String.valueOf(cs);
+	}
+
+	public static  boolean isDifferent(Object a, Object b){
+		return (a == null && b != null) || (a != null && !a.equals(b));
+	}
+
 	public static void main(String[] args) {
-		String s1 ="hello world!";
-		String s2 ="hello world!";
-		System.out.println(s1== s2);
-		System.out.println(s1.equals(s2) );
-//     Scanner sc = new Scanner(System.in);
-//     System.out.println("请输入你的姓名：");
-//     String name = sc.nextLine();
-//		System.out.println("请输入你的年龄：");
-//		int age = sc.nextInt();
-//
-//		System.out.println("请输入你的工资：");
-//
-//		float salary = sc.nextFloat();
-//
-//		System.out.println("你的信息如下：");
-//
-//		System.out.println("姓名："+name+"\n"+"年龄："+age+"\n"+"工资："+salary);
+		System.out.println(Objects.equals(null,null));
+		System.out.println(Objects.equals("1",null));
+		System.out.println(Objects.equals(null,'1'));
+		System.out.println(Objects.equals(1,'1'));
+		System.out.println(Objects.equals('1','1'));
 
 	}
 	

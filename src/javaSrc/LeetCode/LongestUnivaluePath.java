@@ -45,7 +45,7 @@ public class LongestUnivaluePath {
      */
 
     /**
-     * 第65 个testcase美国人，但我确实发现了 9 长度的路径
+     * 第65 个testcase没过，但我确实发现了 9 长度的路径
      * @param root
      * @return
      */
